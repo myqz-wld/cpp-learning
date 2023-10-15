@@ -1,5 +1,5 @@
 ## 右值引用和move函数
-C++11增加了一个新的非常数引用类别——右值引用（right value reference），代码中用$ T\&\& $表示。  
+C++11增加了一个新的非常数引用类别——右值引用（right value reference），代码中用 $ T\&\& $ 表示。  
 右值引用的引入是为了减少不必要的数据拷贝开销。考虑以下场景：
 ```Cpp
 T a;    // 调用构造方法初始化变量a
@@ -52,7 +52,7 @@ struct _LIBCPP_TEMPLATE_VIS remove_reference<_Tp&&> {
 ```
 
 ## constexpr关键词
-const关键词严格来说代表的是只读，其修饰的变量的内容还是在运行期才能够确定的，甚至能够过某些tricky的手段在运行期进行修改。而constexpr关键词才代表真正的常量，在编译期就能够确定。
+const关键词严格来说代表的是只读，其修饰的变量的内容还是在运行期才能够确定的，甚至能够过某些tricky的手段在运行期进行修改。而constexpr关键词才代表真正的常量，在编译期就能够确定。  
 constexpr除了用来修饰常数变量，也能够用来修饰常数函数，比如：
 ```Cpp
 constexpr int get_one() {
