@@ -1,0 +1,29 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "clang++ build",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/build/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}/build",
+            "environment": [],
+            "internalConsoleOptions": "neverOpen",
+            "externalConsole": true,
+            "MIMode": "lldb",
+            "setupCommands": [
+                {
+                    "description": "为gdb启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "clang++ build"
+        }
+    ]
+}

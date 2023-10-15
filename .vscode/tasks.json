@@ -1,0 +1,59 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "clang++ build",
+            "command": "clang++",
+            "args": [
+                "${file}",
+                "-std=c++17",
+                "-stdlib=libc++",
+                "-g",
+                "-o",
+                "${fileDirname}/build/${fileBasenameNoExtension}"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "构建"
+        },
+        {
+            "type": "shell",
+            "label": "clean output",
+            "command": "echo '' > ${fileDirname}/output",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "清除输出"
+        },
+        {
+            "type": "shell",
+            "label": "clang++ build and run",
+            "dependsOn": [
+                "clean output"
+            ],
+            "command": "clang++ ${file} -std=c++17 -stdlib=libc++ -g -o ${fileDirname}/build/${fileBasenameNoExtension} && cat ${fileDirname}/input | ${fileDirname}/build/${fileBasenameNoExtension} > ${fileDirname}/output",
+            "options": {
+                "cwd": "${fileDirname}/build"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "构建并运行"
+        },
+        {
+            "type": "shell",
+            "label": "clear",
+            "command": "rm -rf ${fileDirname}/build/**",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "清理"
+        }
+    ],
+    "version": "2.0.0"
+}
